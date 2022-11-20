@@ -23,11 +23,18 @@
 </h2>
 
 <script>
+    /* function that takes 2 arrguments - location: the file where the fetched content will be shown, 
+    element: the element that will hold the content */ 
     function loadElements(location, element) {
+        /* variable xhr holds the new XMLHttpRequest object */
         let xhr = new XMLHttpRequest();
+        /* specifies the type of request / GET: for executing data / location: from where we want to execute data */
         xhr.open("GET", location);
+        /* when the object is loaded, the function will run */
         xhr.onload = function () {
+        /* if the status is OK (200 stands for OK) */
             if (xhr.status == 200) {
+        /* the HTML element where the content will be thrown, will be selected */
                 document.querySelector(element).innerHTML = xhr.responseText;
             }
         }
